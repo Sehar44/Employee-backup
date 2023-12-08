@@ -4,7 +4,7 @@ const userModel = require('./userModel'); // Import the model schema
 
 const router = express.Router();
 
-// Read
+// Read Data
 router.get("/api/employee", async (req, res) => {
     const data = await userModel.find({});
     res.json({ success: true, data: data });
@@ -18,7 +18,7 @@ router.post("/api/employee", async (req, res) => {
     res.send({ success: true, message: "data saved successfully", data: data });
 });
 
-// Update
+// Update Data
 router.put("/api/employee", async (req, res) => {
     console.log(req.body);
     const { _id, ...rest } = req.body;
@@ -27,7 +27,7 @@ router.put("/api/employee", async (req, res) => {
     res.send({ success: true, message: "data updated successfully", data: data });
 });
 
-// Delete
+// Delete data
 router.delete("/api/employee/:id", async (req, res) => {
     const id = req.params.id;
     console.log(id);
